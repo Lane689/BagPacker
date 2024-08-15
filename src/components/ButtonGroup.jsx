@@ -10,13 +10,6 @@ export default function ButtonGroup() {
   const removeAllItems = useItemsStore((state) => state.removeAllItems);
   return (
     <section className="button-group">
-      {/* {secondaryButtons.map((text) => {
-        return (
-          <Button key={text} type="secondary">
-            {text}
-          </Button>
-        );
-      })} */}
       <Button onClick={markAllAsComplete} buttonType="secondary">
         Mark all as complete
       </Button>

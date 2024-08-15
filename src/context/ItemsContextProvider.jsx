@@ -4,11 +4,6 @@ import { initialItems } from "../lib/constants";
 export const ItemsContext = createContext();
 
 export default function ItemsContextProvider({ children }) {
-  // Accessing local storage every time App() renders
-  // const itemsFromLocalStorage = JSON.parse(localStorage.getItem("items"));
-  // const [items, setItems] = useState(itemsFromLocalStorage || initialItems);
-  /* better (OPTIMIZED) way, because it will only run once when page 1st time load,
-  not every time the component re-renders */
   const [items, setItems] = useState(() => {
     return JSON.parse(localStorage.getItem("items")) || initialItems;
   });
@@ -31,7 +26,7 @@ export default function ItemsContextProvider({ children }) {
   const handleToggleItem = (id) => {
     const newItems = items.map((item) => {
       if (item.id === id) {
-        return { ...item, packed: !item.packed }; // inversing
+        return { ...item, packed: !item.packed };
       }
       return item;
     });

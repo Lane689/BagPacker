@@ -7,7 +7,6 @@ export default function AddItemForm({ onAddItem }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // validation
     if (!itemText) {
       alert("Item can't be empty");
       inputRef.current.focus();

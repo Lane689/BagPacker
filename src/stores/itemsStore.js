@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { initialItems } from "../lib/constants";
 import { persist } from "zustand/middleware";
 
-export const useItemsStore = create(persist((set) => ({  // returning an object -> ({})
+export const useItemsStore = create(persist((set) => ({ 
     items: initialItems,
     addItem: (newItemText) => {
         const newItem = {
@@ -22,7 +22,7 @@ export const useItemsStore = create(persist((set) => ({  // returning an object 
         set(state => {
             const newItems = state.items.map((item) => {
                 if (item.id === id) {
-                  return { ...item, packed: !item.packed }; // inversing
+                  return { ...item, packed: !item.packed };
                 }
                 return item;
               });

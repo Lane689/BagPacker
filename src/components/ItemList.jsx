@@ -15,24 +15,21 @@ export default function ItemList() {
   const deleteItem = useItemsStore((state) => state.deleteItem);
   const toggleItem = useItemsStore((state) => state.toggleItem);
 
-  // When we don't want do some calculation every time when the component re-renders!!
   const sortedItems = useMemo(
     () =>
       [...items].sort((a, b) => {
-        // [...items].sort reating a new array for sorting
         if (sortBy === "packed") {
           return b.packed - a.packed;
         }
         if (sortBy === "unpacked") {
           return a.packed - b.packed;
         }
-        return; //default case
+        return;
       }),
     [items, sortBy]
   );
   return (
     <ul>
-      {/* {items.length === 0 ? <EmptyView /> : null} */}
       {items.length === 0 && <EmptyView />}
       {items.length > 0 ? (
         <section className="sorting">
